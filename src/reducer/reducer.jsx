@@ -1,26 +1,32 @@
-import { counterTypes } from "./types";
+import { counterAction, todoAction } from "./action";
+// import { counterTypes } from "./types";
 
 export const todoReducer = (state, action) => {
-  switch (action.type) {
-    case "CREATE_PRODUCT":
-      return [
-        ...state,
-        {
-          id: action.payload.id,
-          name: action.payload.name,
-          price: action.payload.price,
-        },
-      ];
-    case "DELETE_PRODUCT":
-      return [...state.filter((product) => product.id !== action.payload.id)];
-    default:
-      return state;
-  }
+  const func = todoAction?.[action?.type];
+
+  return func ? func(state, action) : state;
+  // switch (action.type) {
+  //   case "CREATE_PRODUCT":
+  //     return [
+  //       ...state,
+  //       {
+  //         id: action.payload.id,
+  //         name: action.payload.name,
+  //         price: action.payload.price,
+  //       },
+  //     ];
+
+  //   default:
+  //     return state;
+  // }
 };
 
 export const countReducer = (state, action) => {
-  switch (action.type) {
-    case counterTypes.increment:
-      return state + 1;
-  }
+  const func = counterAction?.[action?.type];
+
+  return func ? func(state, action) : state;
+  // switch (action.type) {
+  //   case counterTypes.increment:
+  //     return state + 1;
+  // }
 };

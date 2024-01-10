@@ -4,6 +4,7 @@ import RootLayout from "../pages/RootLayout/RootLayout";
 
 const Home = lazy(() => import("../pages/Home/Home"));
 const About = lazy(() => import("../pages/About/About"));
+const Todo = lazy(() => import("../pages/Todo/Todo"));
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "todo",
+        element: <Todo />,
       },
     ],
   },

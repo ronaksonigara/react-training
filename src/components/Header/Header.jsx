@@ -5,6 +5,8 @@ export default function Header() {
     <HeaderWrapper>
       <StyledLink to="/">Home</StyledLink>
 
+      <StyledLink to="/todo">Todo</StyledLink>
+
       <StyledLink to="/about">About</StyledLink>
     </HeaderWrapper>
   );
